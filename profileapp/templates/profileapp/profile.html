@@ -1,0 +1,53 @@
+{% extends 'profileapp/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel='stylesheet' href="{% static 'profileapp/css/profile.css' %}">
+{% endblock head %}
+
+
+
+
+{% block content %}
+
+  <!-- スキル -->
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+       <h2 class="text-center mt-5">スキル</h2><span>(2020年2月現在)</span>
+      </div>
+          <div class="col-4">
+            <p class="skill-title alert alert-primary">言語</p>
+            <ul>
+              <li>HTML5/CSS</li>
+              <li>php</li>
+              <li>python</li>
+            </ul>
+          </div>
+          <div class="col-4 ">
+            <p class="skill-title alert alert-primary">フレームワーク</p>
+            <ul>
+              <li>Bootstrap</li>
+              <li>Django</li>
+            </ul>
+          </div>
+          <div class='col-4'>
+            <p class='skill-title alert alert-primary'>その他</p>
+            <ul>
+                <li>Selenium</li>
+            </ul>
+          </div>
+    </div>
+  </div>
+
+<!-- プロフィール -->
+<div　class='container'>
+  <div class='row'>
+    <div class='col-12'>
+      <h2 class='text-center mt-5'>自己紹介</h2>
+    </div>
+
+  </div>
+</div>
+
+{% endblock content %}

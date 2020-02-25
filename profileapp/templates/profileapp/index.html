@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <!-- ＃リンクのスムーズスクロール -->
+    <script>
+      $(function(){
+        // #で始まるリンクをクリックしたら実行されます
+        $('a[href^="#"]').click(function() {
+          // スクロールの速度
+          var speed = 400; // ミリ秒で記述
+          var href= $(this).attr("href");
+          var target = $(href == "#" || href == "" ? 'html' : href);
+          var position = target.offset().top;
+          $('body,html').animate({scrollTop:position}, speed, 'swing');
+          return false;
+        });
+      });
+    </script>
+    <title>portfolio</title>
+  </head>
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Menu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#top">Top <span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="#create">Create</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
+  <body>
+
+    <!-- Header -->
+    <header>
+      <div class="jumbotron" id='top'>
+        <div class="container">
+          <h1 class="display-3">Portfolio</h1>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+      <!-- Profile -->
+      <section class="content-section bg-light text-secondary test" id="about">
+       <div class="container">
+         <div class="row">
+           <h2 class="mb-5 text-dark">Profile</h2>
+           <div class="col-lg-10 mx-auto ">
+             <div class="content-section-heading">
+              </div>
+              <ul class="lead text-left">
+                <li>名前：馬場　一世</li>
+                <li>出身：北海道</li>
+                <li>学歴：釧路工業高等専門学校　専攻科　電子情報システム工学専攻</li>
+                <li>言語：HTML/CSS, php, python </li>
+                <li>フレームワーク：Bootstrap, Django</li>
+             <li><a href="{% url 'profile'  %}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true" >詳細(未完)</a></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <!-- Create templates -->
+      <div class="container" id='create'>
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="content-section-heading">
+              <h2 class="mb-3 text-dark">Create</h2>
+            </div>
+          </div>
+          <!-- create1 -->
+          <div class="col-md-4">
+            <h2>TodoList</h2>
+            <p>言語：python<br>フレームワーク：Django</p>
+            <p><a class="btn btn-secondary" href="{% url 'todoindex' %}" role="button" target="_blank">Use app（説明） &raquo;</a></p>
+          </div>
+          <!-- create2 -->
+          <div class="col-md-4">
+            <h2>社内SNS</h2>
+            <p>言語：python<br>フレームワーク：Django</p>
+            <p><a class="btn btn-secondary" href="{% url 'boardsignup' %}" role="button" target="_blank">Use app（説明） &raquo;</a></p>
+          </div>
+          <!-- create3 -->
+
+        </div>
+      </div>
+
+
+    </main>
+  </body>
+</html>

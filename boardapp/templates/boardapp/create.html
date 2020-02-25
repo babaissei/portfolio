@@ -1,0 +1,28 @@
+{% extends 'boardapp/base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel='stylesheet' href="{% static 'css/profile.css' %}" >
+{% endblock customcss %}
+
+{% block header %}
+<h3>create page</h3>
+{% endblock header %}
+
+
+{% block content %}
+<!-- 入力フォーム　-->
+<div class='container'>
+  <div class='col-md-6 col-md-offset-6 alert alert-secondary'>
+    <form action="" method="POST" enctype='multipart/form-data'>{% csrf_token %}
+      <p>タイトル：<input type='text' name='title' ></p>
+      <p>内容：<textarea name='content' rows=5 cols=40></textarea></p>
+      <p>画像：<input type='file' name='images'></p>
+      <input type='hidden' name='author' value='{{ user.username }}'>
+
+      <input type="submit" value="作成する">
+    </form>
+  </div>
+  <a href="{% url 'boardlist' %}">戻る</a>
+</div>
+{% endblock content %}

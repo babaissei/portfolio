@@ -1,0 +1,21 @@
+{% extends 'todolist/base.html' %}
+
+{% block header %}
+<h3>delete page</h3>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+  <div class="alert alert-warning" role="alert">
+    <h2>本当に削除しますか？</h2>
+    <p>タイトル：{{ object.title }}</p>
+    <p>内容：{{ object.memo }}</p>
+    <p>期日：{{ object.duedate }}</p>
+      <form action='' method="POST">{% csrf_token %}
+      <input type="submit" class='btn btn-danger' value='削除する'>
+      <a href="{% url 'todoindex' %}" class='btn btn-primary'>しない</a>
+  </div>
+  <a href="{% url 'todoindex' %}">戻る</a>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'todolist/base.html' %}
+
+{% block header %}
+<h3>list page</h3>
+{% endblock header %}
+
+
+{% block content %}
+<div class='container'>
+<div class='row'>
+
+  <div class='col-12 col-md-3'>
+    <h3>ページ説明</h3>
+  </div>
+
+  <!-- リスト表示 -->
+  <div class='col-12 col-md-9'>
+    <a href="{% url 'todocreate' %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">新規作成</a>
+    {% for item in object_list %}
+    <div class="alert alert-{{ item.priority }}" role="alert">
+      <p>{{item.title}}  </p>
+      <p> 期日：{{item.duedate}}</p>
+      <a href="{% url 'todoupdate' item.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集</a>
+      <a href="{% url 'tododetail' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+      <a href="{% url 'tododelete' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">削除</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+{% endblock content %}

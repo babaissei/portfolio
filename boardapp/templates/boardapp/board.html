@@ -1,0 +1,24 @@
+{% extends 'boardapp/base.html' %}
+{% load static %}
+
+{% block header %}
+<h3>board page</h3>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+  <a href='{% url "boardcreate" %}'>新規作成</a>
+  {% for item in object_list reversed %}
+  <div class="alert alert-success" role="alert">
+    <p>タイトル：<a href="{% url 'boarddetail'　item.pk %}">{{item.title}}  </a></p>
+    <p>投稿者：{{item.author}}</p>
+    <p>投稿時刻：{{item.maketime}}</p>
+    <div class="badge badge-primary">いいね：{{item.good}}</div>
+    <div class="badge badge-secondary">既読：{{item.read}}</div>
+
+  </div>
+  {% endfor %}
+<a href="{% url 'boardlogout' %}">ログアウト</a>
+
+</div>
+{% endblock content %}

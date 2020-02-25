@@ -1,0 +1,17 @@
+{% extends 'todolist/base.html' %}
+
+{% block header %}
+<h3>update page</h3>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+  <div class='col-md-4 col-md-offset-4 alert alert-secondary'>
+    <form action='' method='POST'>{% csrf_token %}
+      {{ form.as_p }}
+      <input type='submit' value='更新する'>
+    </form>
+  </div>
+  <a href="{% url 'todoindex' %}">戻る</a>
+</div>
+{% endblock content %}
