@@ -42,8 +42,7 @@ def boardlist(request):
     if request.user.is_authenticated:
         object_list = models.BoardModel.objects.all().reverse()
         return render(request,'boardapp/board.html',{'object_list':object_list})
-    else:
-        return redirect('boardlogin')
+    return redirect('boardlogin')
 
 
 class BoardDetail(DetailView):

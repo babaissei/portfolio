@@ -9,12 +9,8 @@
 <div class='container'>
 <div class='row'>
 
-  <div class='col-12 col-md-3'>
-    <h3>ページ説明</h3>
-  </div>
-
   <!-- リスト表示 -->
-  <div class='col-12 col-md-9'>
+  <div class='col-12'>
     <a href="{% url 'todocreate' %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">新規作成</a>
     {% for item in object_list %}
     <div class="alert alert-{{ item.priority }}" role="alert">

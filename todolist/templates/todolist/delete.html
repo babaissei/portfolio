@@ -15,7 +15,7 @@
       <input type="submit" class='btn btn-danger' value='削除する'>
       <a href="{% url 'todoindex' %}" class='btn btn-primary'>しない</a>
   </div>
-  <a href="{% url 'todoindex' %}">戻る</a>
+  <a href="{% url 'tododetail' object.pk %}">戻る</a>
 
 </div>
 {% endblock content %}

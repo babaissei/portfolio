@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class='container'>
-  <a href='{% url "boardcreate" %}'>新規作成</a>
+  <a href='{% url "boardcreate" %}'>投稿する</a>
   {% for item in object_list reversed %}
   <div class="alert alert-success" role="alert">
     <p>タイトル：<a href="{% url 'boarddetail'　item.pk %}">{{item.title}}  </a></p>
